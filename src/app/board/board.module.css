@@ -1,0 +1,33 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 45rem;
+  height: 45rem;
+  background-color: #fff;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100px; */
+  margin: 30px;
+  font-size: 3rem;
+}
+
+.reset {
+  text-align: right;
+  margin-bottom: 2rem;
+  width: 45rem;
+}
+.reset button {
+  width: 150px;
+  height: 70px;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  background-color: #fff;
+  color: #121212;
+  border: transparent;
+  cursor: pointer;
+}

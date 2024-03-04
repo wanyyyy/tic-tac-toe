@@ -1,0 +1,14 @@
+.square {
+  width: 15rem;
+  height: 15rem;
+  background-color: #fff;
+  color: #fff;
+  font-size: 5rem;
+  cursor: pointer;
+  border: 1px solid #121212;
+}
+
+.square:disabled {
+  border: 1px solid #121212;
+  cursor: not-allowed;
+}
