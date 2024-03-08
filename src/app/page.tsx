@@ -1,10 +1,9 @@
-import Header from "./_components/header/page";
-import Board from "./board/page";
+import Header from "./components/header/header";
+import Board from "./layout/board/tic-tac-toe";
 
 export default function Home() {
   return (
     <>
-      <Header>Tic-Tac-Toe</Header>
       <div
         style={{
           display: "flex",

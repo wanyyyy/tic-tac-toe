@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Square from "../_components/square/page";
+import Square from "../../components/square/square";
 import styles from "./board.module.css";
+import Header from "@/app/components/header/header";
 
 export default function Board() {
   const [squareArray, setSquareArray] = useState(Array(9).fill(null));
@@ -40,6 +41,7 @@ export default function Board() {
     if (winner) {
       return;
     }
+
     squares[i] = isNext ? "⚫️" : "⚪️";
     setSquareArray(squares);
     setIsNext(!isNext);
@@ -54,55 +56,22 @@ export default function Board() {
 
   return (
     <div>
+      <Header>Tic-Tac-Toe</Header>
       <div className={styles.reset}>
         <button onClick={handleReset}>리겜</button>
       </div>
       <div className={styles.board}>
-        <Square
-          children={squareArray[0]}
-          onClick={() => handleClick(0)}
-          disabled={squareArray[0] ? true : false}
-        />
-        <Square
-          children={squareArray[1]}
-          onClick={() => handleClick(1)}
-          disabled={squareArray[1] ? true : false}
-        />
-        <Square
-          children={squareArray[2]}
-          onClick={() => handleClick(2)}
-          disabled={squareArray[2] ? true : false}
-        />
-        <Square
-          children={squareArray[3]}
-          onClick={() => handleClick(3)}
-          disabled={squareArray[3] ? true : false}
-        />
-        <Square
-          children={squareArray[4]}
-          onClick={() => handleClick(4)}
-          disabled={squareArray[4] ? true : false}
-        />
-        <Square
-          children={squareArray[5]}
-          onClick={() => handleClick(5)}
-          disabled={squareArray[5] ? true : false}
-        />
-        <Square
-          children={squareArray[6]}
-          onClick={() => handleClick(6)}
-          disabled={squareArray[6] ? true : false}
-        />
-        <Square
-          children={squareArray[7]}
-          onClick={() => handleClick(7)}
-          disabled={squareArray[7] ? true : false}
-        />
-        <Square
-          children={squareArray[8]}
-          onClick={() => handleClick(8)}
-          disabled={squareArray[8] ? true : false}
-        />
+        {squareArray.map((_, squareNumber: number) => {
+          return (
+            <Square
+              onClick={() => handleClick(squareNumber)}
+              disabled={squareArray[squareNumber]}
+              key={squareNumber}
+            >
+              {squareArray[squareNumber]}
+            </Square>
+          );
+        })}
       </div>
       {!winner && squareArray.indexOf(null) === -1 ? (
         <div className={styles.result}>비김!</div>
